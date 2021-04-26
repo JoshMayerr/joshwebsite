@@ -2,4 +2,4 @@
 
 ## Demo
 
-See the website [joosh.me](https://joosh.me):
+See the website [joosh.me](https://joosh.me)
