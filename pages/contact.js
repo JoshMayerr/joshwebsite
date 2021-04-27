@@ -84,7 +84,7 @@ export default function Contact() {
                       defaultValue={""}
                       autoComplete="given-name"
                       placeholder="John Doe"
-                      className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-black border-2 rounded-md"
+                      className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:border-white bg-transparent border-black border-2 rounded-md"
                     />
                     {errors.Name && "Name is required"}
                   </div>
@@ -103,7 +103,7 @@ export default function Contact() {
                         required: true,
                         pattern: /^\S+@\S+$/i,
                       })}
-                      className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-black border-2 rounded-md placeholder-gray-500"
+                      className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-black border-2 dark:border-white bg-transparent rounded-md placeholder-gray-500"
                       placeholder="john@doe.com"
                     />
                     {errors.Email && "Email is required and must be valid"}
@@ -121,7 +121,7 @@ export default function Contact() {
                       id="message"
                       name="message"
                       rows={4}
-                      className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-black border-2 rounded-md"
+                      className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500  dark:border-white bg-transparent border-black border-2 rounded-md"
                       defaultValue={""}
                       placeholder="My message to Josh..."
                       {...register("Message", { required: true })}
@@ -132,7 +132,7 @@ export default function Contact() {
                 <div className="sm:col-span-2 mt-4">
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-md  text-base font-medium text-white bg-gradient-to-r from-indigo-500 to-pink-300 hover:animate-pulse focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 rounded-md  text-base font-medium  text-white bg-gradient-to-r from-indigo-500 to-pink-300 hover:animate-pulse focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   >
                     Let's talk
                   </button>

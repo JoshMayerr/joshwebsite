@@ -33,7 +33,7 @@ export default function Worklog({ projects = [] }) {
                   placeholder="Search to Filter..."
                 />
               </div>
-              <button className="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border-l-0 border-2 border-gray-900 dark:border-white text-sm font-medium rounded-r-md dark:bg-white text-white bg-black  focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ">
+              <button className="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border-l-0 border-2 border-gray-900 dark:border-white text-sm font-medium rounded-r-md dark:bg-white text-white dark:text-black bg-black  focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ">
                 <ArrowSmRightIcon className="h-5 w-5 " aria-hidden="true" />
               </button>
             </div>

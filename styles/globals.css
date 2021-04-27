@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=block");
 
 ::selection {
-  /* Change highlight background color to black */
   background: #947ce8;
 }
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <Nav activeLink={"Home"}>
-      <div className="text-left flex flex-col justify-center  min-h-screen pb-12 -my-28 sm:-my-24">
+      <div className="text-left flex flex-col justify-center min-h-screen pb-12 -my-28 sm:-my-24">
         <h1 className="font-body text-9xl tracking-wide  ">Josh Mayer</h1>
         <div className="tracking-tight">
           <p className="sm:text-xl text-lg leading-6 mt-4 lg:w-1/2">
