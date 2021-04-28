@@ -26,6 +26,14 @@ const Meta = () => (
             height: 800,
             alt: "Josh Image Alt Second",
           },
+          {
+            url:
+              "https://images.ctfassets.net/ufnqka13dgbp/3L0SGJxmYHgkjp8uE10gf0/a949009be395469871d32454e8d6297b/joshweb1.png",
+          },
+          {
+            url:
+              "https://images.ctfassets.net/ufnqka13dgbp/2isOztk3H8sDiIPCe9FtF3/24267f34824b17d8dfcd09f9daf1b643/joshweb2.png",
+          },
         ],
         site_name: "Josh Mayer's Wonderful Website",
       }}
