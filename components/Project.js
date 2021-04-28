@@ -19,8 +19,8 @@ export default function Project({
   const [open, setOpen] = useState(false);
 
   return (
-    <li className="col-span-1 flex flex-col text-center rounded-lg border-2 border-black dark:border-white transition ease-in-out hover:border-indigo-500">
-      <div className="flex-1 flex flex-col p-6">
+    <li className="col-span-1 flex flex-col text-center rounded-lg border-2 border-black dark:border-white  transition ease-in-out ">
+      <div className="flex-1 flex flex-col p-6 hover:border-indigo-500">
         <div className="flex justify-between">
           <span>
             <Date date={date} />
