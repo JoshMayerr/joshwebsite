@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 
-export default function Modal({ open, setOpen, photo }) {
+export default function Modal({ open, setOpen, photo, blurb, title }) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -13,7 +13,7 @@ export default function Modal({ open, setOpen, photo }) {
         open={open}
         onClose={setOpen}
       >
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 font-mon">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -43,7 +43,7 @@ export default function Modal({ open, setOpen, photo }) {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-              <div className=" absolute top-0 right-0 pt-4 pr-4">
+              <div className="z-50 absolute top-0 right-0 pt-4 pr-4">
                 <button
                   type="button"
                   className="bg-white rounded-md text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -53,9 +53,21 @@ export default function Modal({ open, setOpen, photo }) {
                   <XIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
-              <div className="sm:flex sm:items-start">
-                <div>
-                  <img src={photo} alt="Detail Image" />
+              <div className="">
+                <div className="shadow-lg aspect-w-16 aspect-h-9 bg-gray-100 z-0">
+                  <div className="object-cover">
+                    <Image
+                      src={`https:${photo}`}
+                      alt="detail img"
+                      layout="fill"
+                    />
+                  </div>
+                </div>
+                <div className="pt-4 pb-2 text-3xl text-black">
+                  <h1>{title}</h1>
+                </div>
+                <div className="text-gray-500 leading-tight font-thin">
+                  <p>{blurb}</p>
                 </div>
               </div>
             </div>

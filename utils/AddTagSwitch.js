@@ -1,4 +1,4 @@
-function TagSwitch(name) {
+function AddTagSwitch(name) {
   if (name.substring(0, 4) === "year") {
     return {
       bg: "border border-black dark:border-white",
@@ -65,14 +65,6 @@ function TagSwitch(name) {
         textSelected: "text-white",
         name: "Design",
       };
-    case "socialMedia":
-      return {
-        bg: "border-indigo-400 border",
-        bgSelected: "bg-indigo-400 border border-transparent",
-        text: "text-indigo-400",
-        textSelected: "text-white",
-        name: "Social Media",
-      };
     default:
       return {
         bg: "border-indigo-400 border",
@@ -83,14 +75,5 @@ function TagSwitch(name) {
       };
   }
 }
-export default function Tag({ name }) {
-  const nam = TagSwitch(name);
 
-  return (
-    <div
-      className={`px-2 py-1 mt-2 ${nam.bg} text-xs font-medium ${nam.text} rounded-full`}
-    >
-      {nam.name}
-    </div>
-  );
-}
+export default AddTagSwitch;

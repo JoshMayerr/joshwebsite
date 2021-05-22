@@ -1,4 +1,7 @@
-function TagSwitch(name) {
+import { useState } from "react";
+import { PlusSmIcon, CheckIcon } from "@heroicons/react/solid";
+
+function AddTagSwitch(name) {
   if (name.substring(0, 4) === "year") {
     return {
       bg: "border border-black dark:border-white",
@@ -65,14 +68,6 @@ function TagSwitch(name) {
         textSelected: "text-white",
         name: "Design",
       };
-    case "socialMedia":
-      return {
-        bg: "border-indigo-400 border",
-        bgSelected: "bg-indigo-400 border border-transparent",
-        text: "text-indigo-400",
-        textSelected: "text-white",
-        name: "Social Media",
-      };
     default:
       return {
         bg: "border-indigo-400 border",
@@ -83,14 +78,27 @@ function TagSwitch(name) {
       };
   }
 }
-export default function Tag({ name }) {
-  const nam = TagSwitch(name);
 
+export default function AddTag({ name }) {
+  const nam = AddTagSwitch(name);
+  const [clicked, setclicked] = useState(false);
   return (
-    <div
-      className={`px-2 py-1 mt-2 ${nam.bg} text-xs font-medium ${nam.text} rounded-full`}
+    <button
+      className={`px-2 py-1 inline-flex ml-1 mr-1 mt-1 mb-1 focus:outline-none transition duration-500 ease-in-out ${
+        clicked ? nam.bgSelected : nam.bg
+      } text-xs font-medium ${
+        clicked ? nam.textSelected : nam.text
+      }  rounded-full`}
+      onClick={() => setclicked(!clicked)}
     >
-      {nam.name}
-    </div>
+      <div className="ml-1">{nam.name}</div>
+      <div className="ml-1">
+        {clicked ? (
+          <CheckIcon className="h-4 w-4" aria-hidden="true" />
+        ) : (
+          <PlusSmIcon className="h-4 w-4" aria-hidden="true" />
+        )}
+      </div>
+    </button>
   );
 }

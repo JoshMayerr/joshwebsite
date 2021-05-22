@@ -12,23 +12,23 @@ function TagSwitch(name) {
     case "react":
       return {
         bg: "border border-blue-500 ",
-        bgSelected: "border bg-blue-500  border-transparent",
+        bgSelected: "bg-blue-500 border border-transparent",
         text: "text-blue-500",
         textSelected: "text-white",
         name: "React",
       };
     case "laravel":
       return {
-        bg: "border border-red-500 ",
-        bgSelected: "border bg-red-500  border-transparent",
+        bg: "border-red-500 border",
+        bgSelected: "bg-red-500 border border-transparent",
         text: "text-red-500",
         textSelected: "text-white",
         name: "Laravel",
       };
     case "nodeJs":
       return {
-        bg: "border border-green-500 ",
-        bgSelected: "border bg-green-500  border-transparent",
+        bg: "border-green-500 border",
+        bgSelected: "bg-green-500 border border-transparent",
         text: "text-green-500",
         textSelected: "text-white",
         name: "NodeJS",
@@ -65,14 +65,6 @@ function TagSwitch(name) {
         textSelected: "text-white",
         name: "Design",
       };
-    case "socialMedia":
-      return {
-        bg: "border-indigo-400 border",
-        bgSelected: "bg-indigo-400 border border-transparent",
-        text: "text-indigo-400",
-        textSelected: "text-white",
-        name: "Social Media",
-      };
     default:
       return {
         bg: "border-indigo-400 border",
@@ -83,14 +75,5 @@ function TagSwitch(name) {
       };
   }
 }
-export default function Tag({ name }) {
-  const nam = TagSwitch(name);
 
-  return (
-    <div
-      className={`px-2 py-1 mt-2 ${nam.bg} text-xs font-medium ${nam.text} rounded-full`}
-    >
-      {nam.name}
-    </div>
-  );
-}
+export default TagSwitch;

@@ -1,16 +1,44 @@
 import Nav from "../components/Nav";
 import { ArrowSmRightIcon } from "@heroicons/react/solid";
-import {
-  MailIcon,
-  PhoneIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-} from "@heroicons/react/solid";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/solid";
 import Project from "../components/Project";
-import Tag from "../components/Tag";
 import { Disclosure, Transition } from "@headlessui/react";
+import AddTag from "../components/AddTag";
+import { useState, useEffect } from "react";
+
+const tags = [
+  "laravel",
+  "react",
+  "photoshop",
+  "illustrator",
+  "nodeJs",
+  "year2021",
+  "year2020",
+  "webDev",
+  "design",
+];
 
 export default function Worklog({ projects = [] }) {
+  const [filter, setFilter] = useState(null);
+  const [allProjects, setAllProjects] = useState(projects);
+  console.log(projects);
+
+  useEffect(() => {
+    console.log(filter, "filter");
+    if (filter) {
+      console.log("a", filter);
+      setAllProjects(
+        allProjects.filter(
+          (p) =>
+            p.fields.title.toLowerCase().indexOf(filter.toLowerCase()) >= 0 ||
+            p.fields.blurb.toLowerCase().indexOf(filter.toLowerCase()) >= 0
+        )
+      );
+    } else {
+      setAllProjects(projects);
+    }
+  }, [filter]);
+
   return (
     <Nav activeLink={"My Worklog"}>
       <div className="flex flex-col items-center mb-24">
@@ -29,12 +57,16 @@ export default function Worklog({ projects = [] }) {
                   type="text"
                   name="filter"
                   id="filter"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none py-3 px-4 rounded-l-md border-2 border-r-0 sm:text-sm border-black placeholder-black dark:bg-transparent dark:placeholder-white dark:border-white"
+                  className="focus:ring-indigo-500 sm:text-md focus:border-indigo-500 block w-full rounded-none tracking-wider py-3 px-4 rounded-l-md border-2 border-r-0  border-black placeholder-black dark:bg-transparent dark:placeholder-white dark:border-white"
                   placeholder="Search to Filter..."
+                  onKeyUp={(e) => setFilter(e.target.value)}
                 />
               </div>
-              <button className="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border-l-0 border-2 border-gray-900 dark:border-white text-sm font-medium rounded-r-md dark:bg-white text-white dark:text-black bg-black  focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ">
-                <ArrowSmRightIcon className="h-5 w-5 " aria-hidden="true" />
+              <button
+                className="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border-l-0 border-2 border-gray-900 dark:border-white text-sm font-medium rounded-r-md dark:bg-white text-white dark:text-black bg-black  focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 "
+                onClick={() => setFilter(filter)}
+              >
+                <ArrowSmRightIcon className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
             <div className="mt-2">
@@ -42,8 +74,8 @@ export default function Worklog({ projects = [] }) {
                 {({ open }) => (
                   <>
                     <Disclosure.Button>
-                      <div className="flex items-center ">
-                        Filter By
+                      <div className="flex items-center focus:outline-none ml-1">
+                        Filter By Tag
                         <span className="ml-1 w-5 h-5">
                           {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
                         </span>
@@ -56,48 +88,21 @@ export default function Worklog({ projects = [] }) {
                     <Transition
                       show={open}
                       enter="transition duration-100 ease-out"
-                      enterFrom="transform  opacity-0"
+                      enterFrom="transform scale-95 opacity-0"
                       enterTo="transform scale-100 opacity-100"
                       leave="transition duration-75 ease-out"
                       leaveFrom="transform scale-100 opacity-100"
-                      leaveTo="transform  opacity-50"
+                      leaveTo="transform scale-95 opacity-0"
                     >
                       {/*
               Don't forget to add `static` to your Disclosure.Panel!
             */}
                       <Disclosure.Panel static>
-                        <div className="mt-2 bg-gray-100 rounded-lg w-full ">
-                          <div className="flex flex-wrap p-4 space-x-3">
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
-                              Laravel
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
-                              Badge
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                              Badge
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                              Badge
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
-                              Badge
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
-                              Badge
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-pink-100 text-pink-800">
-                              Badge
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium border border-black">
-                              2019
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium border border-indigo-500 text-indigo-500">
-                              WebDev
-                            </span>
-                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium border border-indigo-500 text-indigo-500">
-                              Design
-                            </span>
+                        <div className="mt-2 border-black border-2 shadow-sm dark:border-gray-100 rounded-lg w-full ">
+                          <div className="py-2 flex justify-center flex-wrap">
+                            {tags.map((tag) => (
+                              <AddTag name={tag} key={tag} filter={filter} />
+                            ))}
                           </div>
                         </div>
                       </Disclosure.Panel>
@@ -111,19 +116,26 @@ export default function Worklog({ projects = [] }) {
 
         <div className="mt-10 w-full">
           <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
-            {projects.map((project) => (
-              <Project
-                key={project.sys.id}
-                title={project.fields.title}
-                description={project.fields.description}
-                thumbnail={project.fields.thumbnail.fields.file.url}
-                photo={project.fields.photos[0].fields.file.url}
-                githubLink={project.fields.githubLink}
-                demoLink={project.fields.demoLink}
-                date={project.fields.date}
-                tags={project.metadata.tags}
-              />
-            ))}
+            {allProjects.length > 0 ? (
+              allProjects.map((project) => (
+                <Project
+                  key={project.sys.id}
+                  title={project.fields.title}
+                  blurb={project.fields.blurb}
+                  richText={project.fields.richText}
+                  thumbnail={project.fields.thumbnail.fields.file.url}
+                  photo={project.fields.photos[0].fields.file.url}
+                  githubLink={project.fields.githubLink}
+                  demoLink={project.fields.demoLink}
+                  date={project.fields.date}
+                  tags={project.metadata.tags}
+                />
+              ))
+            ) : (
+              <div className="text-white text-lg col-span-3 flex justify-center lg:h-48">
+                No projects found with this criteria :)
+              </div>
+            )}
           </ul>
         </div>
       </div>
@@ -140,7 +152,7 @@ export async function getStaticProps() {
 
   // Fetch all entries of content_type `tv`
   const projects = await client
-    .getEntries({ content_type: "project" })
+    .getEntries({ content_type: "project", order: "-fields.priority" })
     .then((response) => response.items);
 
   return {

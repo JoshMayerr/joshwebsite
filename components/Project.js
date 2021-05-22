@@ -8,7 +8,7 @@ import Date from "../components/DateTag";
 
 export default function Project({
   title,
-  description,
+  blurb,
   thumbnail,
   photo,
   githubLink,
@@ -27,11 +27,17 @@ export default function Project({
           </span>
           <button className="-mt-1 -mr-1" onClick={() => setOpen(!open)}>
             <PhotographIcon
-              className="h-6 w-6  hover:text-indigo-500 transition duration-500 ease-in-out"
+              className="h-6 w-6hover:text-indigo-500 transition duration-500 ease-in-out"
               aria-hidden="true"
             />
           </button>
-          <Modal open={open} setOpen={setOpen} photo={photo} />
+          <Modal
+            open={open}
+            setOpen={setOpen}
+            photo={photo}
+            blurb={blurb}
+            title={title}
+          />
         </div>
         <div className="mt-4 ">
           <div
@@ -41,7 +47,7 @@ export default function Project({
             <Image
               className="object-cover rounded-lg hover:opacity-75 transition ease-in-out"
               src={`https:${thumbnail}`}
-              alt=""
+              alt="project image"
               layout="fill"
             />
           </div>
@@ -49,9 +55,7 @@ export default function Project({
         <h3 className="mt-4  text-5xl">{title}</h3>
         <dl className="mt-4 flex-grow flex flex-col justify-between ">
           <dt className="sr-only">Title</dt>
-          <dd className="text-gray-600 dark:text-gray-400 text-sm">
-            {description}
-          </dd>
+          <dd className="text-gray-600 dark:text-gray-400 text-sm">{blurb}</dd>
           <dt className="sr-only">Role</dt>
           <dd className="mt-1 space-x-2  flex flex-wrap justify-center">
             {tags.map((tag) => (
@@ -59,6 +63,7 @@ export default function Project({
             ))}
           </dd>
           <dd className="mt-6 text-md flex justify-between">
+            {/* add locked icon for private repos */}
             {githubLink && (
               <a
                 target="_blank"

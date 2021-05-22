@@ -24,7 +24,7 @@ export default function Nav(props) {
   return (
     <>
       <Meta />
-      <div className="  font-mon transition-all">
+      <div className="font-mon transition-all">
         <Disclosure as="nav" className=" ">
           {({ open }) => (
             <>
@@ -58,7 +58,7 @@ export default function Nav(props) {
                     </div>
                   </div>
 
-                  <div className="-mr-2 flex items-center sm:hidden">
+                  <div className="-mr-2 flex items-center sm:hidden z-50">
                     {/* Mobile menu button */}
                     <Menu as="div" className="relative inline-block text-left">
                       {({ open }) => (
@@ -85,7 +85,7 @@ export default function Nav(props) {
                           >
                             <Menu.Items
                               static
-                              className="origin-top-right absolute right-0 mt-2 w-44 dark:bg-white dark:text-black rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                              className="origin-top-right absolute right-0 mt-2 w-44 bg-white dark:text-black rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                             >
                               <div className="py-1">
                                 <Menu.Item>
@@ -150,7 +150,7 @@ export default function Nav(props) {
         </Disclosure>
 
         <div className="sm:py-4">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-0">
             <main>{props.children}</main>
           </div>
           <Footer />
