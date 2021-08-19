@@ -79,7 +79,7 @@ function AddTagSwitch(name) {
   }
 }
 
-export default function AddTag({ name }) {
+export default function AddTag({ name, filter, setFilter }) {
   const nam = AddTagSwitch(name);
   const [clicked, setclicked] = useState(false);
   return (
@@ -89,7 +89,10 @@ export default function AddTag({ name }) {
       } text-xs font-medium ${
         clicked ? nam.textSelected : nam.text
       }  rounded-full`}
-      onClick={() => setclicked(!clicked)}
+      onClick={() => {
+        setclicked(!clicked);
+        setFilter(!clicked ? name : "");
+      }}
     >
       <div className="ml-1">{nam.name}</div>
       <div className="ml-1">

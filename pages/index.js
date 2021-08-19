@@ -20,19 +20,23 @@ export default function Home() {
             </span>
             ,{" "}
             <span className="hover:blur-sm transition ease-in-out filter animate-pulse">
-              <Link href="/worklog">
-                <a className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-indigo-500 ">
-                  designer
-                </a>
-              </Link>
+              <a
+                href="https://www.behance.net/jooshmayer"
+                target="_blank"
+                className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-indigo-500 "
+              >
+                designer
+              </a>
             </span>
             , and{" "}
             <span className="hover:blur-sm transition ease-in-out filter animate-pulse">
-              <Link href="/worklog">
-                <a className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-red-500 ">
-                  creator
-                </a>
-              </Link>
+              <a
+                href="https://www.behance.net/jooshmayer"
+                target="_blank"
+                className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-red-500 "
+              >
+                creator
+              </a>
             </span>
             .
           </p>
