@@ -13,6 +13,7 @@ export default function Project({
   photo,
   githubLink,
   demoLink,
+  behanceLink,
   date,
   tags,
 }) {
@@ -41,15 +42,17 @@ export default function Project({
         </div>
         <div className="mt-4 ">
           <div
-            onClick={() => setOpen(!open)}
+            // onClick={() => setOpen(!open)}
             className="aspect-w-16 aspect-h-9 shadow-md hover:shadow-none transition ease-in-out cursor-pointer rounded-lg"
           >
-            <Image
-              className="object-cover rounded-lg hover:opacity-75 transition ease-in-out"
-              src={`https:${thumbnail}`}
-              alt="project image"
-              layout="fill"
-            />
+            <a href={behanceLink ? behanceLink : demoLink} target="_blank">
+              <Image
+                className="object-cover rounded-lg hover:opacity-75 transition ease-in-out"
+                src={`https:${thumbnail}`}
+                alt="project image"
+                layout="fill"
+              />
+            </a>
           </div>
         </div>
         <h3 className="mt-4  text-5xl">{title}</h3>
@@ -86,6 +89,21 @@ export default function Project({
                 className="flex items-center hover:text-indigo-500 transition duration-500 ease-in-out"
               >
                 Demo
+                <span className="">
+                  <ArrowRightIcon
+                    className="h-4 w-4  transform -rotate-45 ml-1"
+                    aria-hidden="true"
+                  />
+                </span>
+              </a>
+            )}
+            {behanceLink && (
+              <a
+                target="_blank"
+                href={behanceLink}
+                className="flex items-center hover:text-indigo-500 transition duration-500 ease-in-out"
+              >
+                Behance
                 <span className="">
                   <ArrowRightIcon
                     className="h-4 w-4  transform -rotate-45 ml-1"
