@@ -45,9 +45,8 @@ export default function Worklog({ projects = [] }) {
           My Worklog
         </h1>
         <p className="mt-4 sm:mt-6 sm:w-3/4 md:w-1/2 w-full text-lg justify-self-center text-center ">
-          All of my projects, ever made, all in one place. Search or filter by
-          tools used, skill, or year made. For the rest of my design work, check
-          out my{" "}
+          All of my biggest projects, ever made, all in one place. For the rest
+          of my design work, check out my{" "}
           <a
             className="hover:underline"
             href="https://www.behance.net/jooshmayer"
