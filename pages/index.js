@@ -12,7 +12,7 @@ export default function Home() {
           </h1>
           <div className="tracking-tight">
             <p className="sm:text-xl text-lg leading-6 mt-4 lg:w-1/2">
-              17. San Francisco. Mostly a student. Occasionally a{" "}
+              18. San Francisco. Mostly a student. Occasionally a{" "}
               <span className="hover:blur-sm transition ease-in-out filter animate-pulse">
                 <Link href="/worklog">
                   <a className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500 ">
