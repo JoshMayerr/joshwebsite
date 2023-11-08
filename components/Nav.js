@@ -11,10 +11,7 @@ import Footer from "./Footer";
 import DarkToggle from "../components/DarkToggle";
 import Meta from "../components/Meta";
 
-const navigation = [
-  { name: "My Worklog", href: "/worklog", current: false },
-  { name: "Contact Me", href: "/contact", current: false },
-];
+const navigation = [{ name: "My Worklog", href: "/worklog", current: false }];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -104,14 +101,9 @@ export default function Nav(props) {
                                 </Menu.Item>
                                 <Menu.Item>
                                   {({ active }) => (
-                                    <Link href="/contact">
-                                      <a
-                                        className={classNames(
-                                          active && "text-indigo-500",
-                                          "block px-4 py-2 text-lg"
-                                        )}
-                                      >
-                                        Contact Me
+                                    <Link href="https://notes.joshmayer.net">
+                                      <a className="block px-4 py-2 text-lg">
+                                        Writing
                                       </a>
                                     </Link>
                                   )}
